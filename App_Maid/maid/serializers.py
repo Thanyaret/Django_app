@@ -5,7 +5,8 @@ from rest_framework import serializers
 class userserializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = [ 'photo',
+        fields = [ 'id',
+                    'photo',
                    'name',
                    'phone',
                    'username',
@@ -16,9 +17,12 @@ class userserializer(serializers.ModelSerializer):
 class maidserializer (serializers.ModelSerializer):
     class Meta:
         model = maid
-        fields = [ 'photo',
+        fields = [ 'id',
+                    'photo',
                    'name',
                    'age',
                    'phone',
-                   'detail'
+                   'detail',
+                   'skill',
+                   'review'
         ]
