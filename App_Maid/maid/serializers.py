@@ -1,4 +1,4 @@
-from .models import User,maid
+from .models import User, maid, statusmaid,historymaid
 from rest_framework import serializers
 
 
@@ -26,3 +26,21 @@ class maidserializer (serializers.ModelSerializer):
                    'skill',
                    'review'
         ]
+
+class statusmaidserializer(serializers.ModelSerializer):
+    class Meta:
+        model = statusmaid
+        fields = [
+                  'id',
+                  'maid',
+                  'status'
+                  ]
+
+
+class historymaidserializer(serializers.ModelSerializer):
+    class Meta:
+        model = historymaid
+        fields = [
+                  'id',
+                  'maid'
+                  ]

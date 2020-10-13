@@ -19,3 +19,17 @@ class maid(models.Model):
     skill = models.CharField(max_length=255)
     review = models.CharField(max_length=255)
 
+    def __str__(self):
+        return "{}".format(self.name)
+
+class statusmaid(models.Model):
+    maid = models.ForeignKey(maid,on_delete=models.CASCADE)
+    status = models.BooleanField()
+
+    def __str__(self):
+        return "{}".format(self.maid.name)
+
+class historymaid(models.Model):
+    maid = models.ForeignKey(maid,on_delete=models.CASCADE)
+    def __str__(self):
+        return "{}".format(self.maid.name)

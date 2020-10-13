@@ -23,7 +23,8 @@ from django.conf.urls.static import static
 router = routers.SimpleRouter()
 router.register('user',maid_views.UserViewSet)
 router.register('maid',maid_views.maidViewSet)
-
+router.register('statusmaid',maid_views.statusmaidViewSet)
+router.register('historymaid',maid_views.historymaidViewSet)
 urlpatterns = [
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
