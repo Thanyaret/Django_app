@@ -23,11 +23,12 @@ class maid(models.Model):
         return "{}".format(self.name)
 
 class statusmaid(models.Model):
-    maid = models.ForeignKey(maid,on_delete=models.CASCADE)
+    maid_name = models.ForeignKey(maid,on_delete=models.CASCADE)
     status = models.BooleanField()
 
     def __str__(self):
         return "{}".format(self.maid.name)
+
 
 class historymaid(models.Model):
     maid = models.ForeignKey(maid,on_delete=models.CASCADE)

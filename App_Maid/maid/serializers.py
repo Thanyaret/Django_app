@@ -23,16 +23,18 @@ class maidserializer (serializers.ModelSerializer):
                    'age',
                    'phone',
                    'detail',
+                   'date',
                    'skill',
                    'review'
         ]
 
 class statusmaidserializer(serializers.ModelSerializer):
+    maid_name = maidserializer(read_only=True)
     class Meta:
         model = statusmaid
         fields = [
                   'id',
-                  'maid',
+                  'maid_name',
                   'status'
                   ]
 
