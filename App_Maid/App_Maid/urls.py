@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 router = routers.SimpleRouter()
-router.register('User',maid_views.UserProfileViewSet)
+router.register('user',maid_views.UserViewSet)
 router.register('maid',maid_views.maidViewSet)
 router.register('statusmaid',maid_views.statusmaidViewSet)
 router.register('historymaid',maid_views.historymaidViewSet)

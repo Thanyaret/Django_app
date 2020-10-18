@@ -2,7 +2,7 @@ from .models import User, maid, statusmaid,historymaid
 from rest_framework import serializers
 
 
-class UserProfileserializer(serializers.ModelSerializer):
+class userserializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [ 'id',
