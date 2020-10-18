@@ -21,7 +21,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 router = routers.SimpleRouter()
-router.register('User',maid_views.UserProfileViewSet)
 router.register('maid',maid_views.maidViewSet)
 router.register('statusmaid',maid_views.statusmaidViewSet)
 router.register('historymaid',maid_views.historymaidViewSet)
@@ -29,4 +28,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/user-profile/', maid_views.UserProfileViewSet.as_view()),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
