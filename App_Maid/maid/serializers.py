@@ -1,21 +1,18 @@
-from .models import UserProfile, maid, statusmaid,historymaid,User
+from .models import User, maid, statusmaid,historymaid
 from rest_framework import serializers
-from rest_auth.serializers import UserDetailsSerializer
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta : 
-        fields  = "__all__"
-        model = User
-class UserProfileserializer(serializers.ModelSerializer):
+
+class userserializer(serializers.ModelSerializer):
     class Meta:
-        model = UserProfile
-        fields = "__all__"
-
-
-class CustomUserDetailSerializer(UserDetailsSerializer):
-    profile = UserProfileserializer(read_only=True)
-    class Meta(UserDetailsSerializer.Meta):
-        fields = UserDetailsSerializer.Meta.fields + ('profile',)
+        model = User
+        fields = [ 'id',
+                    'photo',
+                   'name',
+                   'phone',
+                   'username',
+                   'password',
+                   'address'
+        ]
 
 class maidserializer (serializers.ModelSerializer):
     class Meta:
@@ -49,4 +46,3 @@ class historymaidserializer(serializers.ModelSerializer):
                   'id',
                   'maid'
                   ]
-
