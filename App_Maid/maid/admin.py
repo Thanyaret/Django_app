@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import User,maid
+from .models import UserProfile,maid
 # Register your models here.
 
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('id','name','address')
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('id','address')
 
 class maidAdmin(admin.ModelAdmin):
     list_display = ('id','name','detail')
 
-admin.site.register(User,UserAdmin)
+admin.site.register(UserProfile,UserProfileAdmin)
 admin.site.register(maid,maidAdmin)
