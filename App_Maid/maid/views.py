@@ -17,19 +17,9 @@ class UserProfileViewSet(UserDetailsView):
 
     def retrieve(self, request, *args, **kwargs):
         user = User.objects.get(username=request.user)
-        user_profile = user.userprofile
-        print("user",user_profile)
-        user_profile_data = {
-            "pk" : user.pk,
-            "username" : user.username,
-            "f_name"  : user.first_name
-        }
-        # try :
-        #     user_profile_data['photo'] =  user_profile.photo 
-        # except ValueError  as e :
-        #     user_profile_data['photo'] =  None 
- 
-        return Response(user_profile_data)
+        user_profile = user
+        user_serializer = UserSerializer(user_profile)
+        return Response(user_serializer.data)
 
 class maidViewSet(viewsets.ModelViewSet):
     queryset = maid.objects.all()

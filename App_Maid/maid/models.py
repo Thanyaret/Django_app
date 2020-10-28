@@ -20,7 +20,6 @@ class maid(models.Model):
     age = models.CharField(max_length=3)
     phone = models.CharField(max_length=10)
     detail = models.CharField(max_length=255)
-    date = models.DateTimeField()
     skill = models.CharField(max_length=255)
     review = models.CharField(max_length=255)
 
@@ -30,6 +29,8 @@ class maid(models.Model):
 
 class statusmaid(models.Model):
     maid_name = models.ForeignKey(maid, on_delete=models.CASCADE)
+    date = models.DateTimeField()
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     status = models.BooleanField()
 
     def __str__(self):
@@ -37,7 +38,8 @@ class statusmaid(models.Model):
 
 
 class historymaid(models.Model):
-    maid = models.ForeignKey(maid, on_delete=models.CASCADE)
+    maid_history = models.ForeignKey(maid, on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
         return "{}".format(self.maid.name)
